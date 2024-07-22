@@ -1,8 +1,9 @@
-model_name: cbow
+# model_name: cbow
+model_name: skipgram
 
 dataset: WikiText2
-data_dir: data/
-train_batch_size: 96
+data_dir: /home/zzisbeauty/word2vecs/word2vec-pytorch/data/
+train_batch_size: 1
 val_batch_size: 96
 shuffle: True
 
@@ -13,4 +14,4 @@ train_steps:
 val_steps: 
 
 checkpoint_frequency: 
-model_dir: weights/cbow_WikiText2
+model_dir: /home/zzisbeauty/word2vecs/word2vec-pytorch/weights/cbow_WikiText2
