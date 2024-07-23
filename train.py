@@ -18,7 +18,7 @@ from utils.helper import (
 def train(config):
     # os.makedirs(config["model_dir"])
     
-    train_dataloader, vocab = get_dataloader_and_vocab( # 准备语料 创建标记生成器，进而得到一个个 tokens
+    train_dataloader, vocab = get_dataloader_and_vocab( # 准备语料 创建标记生成器，进而得到一个 token 生成器 Token
         model_name=config["model_name"],
         ds_name=config["dataset"],
         ds_type="train",
@@ -79,11 +79,8 @@ def train(config):
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, required=False, 
-                        default='/home/zzisbeauty/word2vecs/word2vec-pytorch/config.yaml',
-                        help='path to yaml config')
+    parser.add_argument('--config', type=str, required=False,  default='/home/zzisbeauty/word2vecs/word2vec-pytorch/config.yaml', help='path to yaml config')
     args = parser.parse_args()
-    
     with open(args.config, 'r') as stream:
         config = yaml.safe_load(stream)
-    train(config)
+        train(config)
